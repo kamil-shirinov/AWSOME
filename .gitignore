@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+progress/
+.env
+.mcp.json
+.DS_Store

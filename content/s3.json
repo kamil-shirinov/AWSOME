@@ -1,0 +1,71 @@
+{
+  "id": "s3",
+  "title": "Amazon S3",
+  "reels": [
+    {
+      "title": "The cloud in one sentence",
+      "body": "The cloud means renting someone else's computers over the internet. No hardware to buy: pay for what you use and scale anytime.",
+      "seconds": 8
+    },
+    {
+      "title": "Meet Amazon S3",
+      "body": "S3 (Simple Storage Service) is object storage in the cloud: upload files of any type and reach them from anywhere with an internet connection.",
+      "seconds": 8
+    },
+    {
+      "title": "Buckets, objects and keys",
+      "body": "Files are objects stored in buckets. Each object has a key (its name), like photos/cat.jpg. Reach them via console, CLI or code.",
+      "seconds": 8
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "How much data can S3 hold?",
+      "back": "Virtually unlimited. No disks to add or capacity to plan; your storage simply grows as you upload."
+    },
+    {
+      "front": "How durable is S3?",
+      "back": "It's designed for 99.999999999% (11 nines) durability, so losing a stored object is extremely unlikely."
+    },
+    {
+      "front": "Is a new bucket public?",
+      "back": "No. New buckets are private by default, with Block Public Access switched on."
+    },
+    {
+      "front": "What is S3 used for?",
+      "back": "Backups, project files, media, data lakes, static websites, and this very lesson, which was loaded from S3."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What kind of storage is Amazon S3?",
+      "options": ["A relational database", "A virtual machine", "Object storage", "A code editor"],
+      "answer": 2,
+      "why": "S3 stores files as objects in buckets. Databases and virtual machines are separate AWS services."
+    },
+    {
+      "q": "In S3, what is a file called?",
+      "options": ["An object", "A bucket", "An instance", "A table"],
+      "answer": 0,
+      "why": "Files are objects; buckets are the containers that hold them."
+    },
+    {
+      "q": "S3 is designed for 11 nines of what?",
+      "options": ["Speed", "Discounts", "Regions", "Durability"],
+      "answer": 3,
+      "why": "99.999999999% durability means stored data is extremely unlikely to be lost."
+    },
+    {
+      "q": "Who can see a brand-new bucket's contents?",
+      "options": ["Anyone on the internet", "Only people you give access", "All AWS customers", "Everyone in the same Region"],
+      "answer": 1,
+      "why": "New buckets are private by default, with Block Public Access on."
+    },
+    {
+      "q": "Which job is NOT a typical S3 use case?",
+      "options": ["Storing backups", "Hosting a static website", "Running code on a schedule", "Storing media files"],
+      "answer": 2,
+      "why": "Running code is a compute job, perfect for Lambda. S3 stores data."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "lambda",
+  "title": "AWS Lambda",
+  "reels": [
+    {
+      "title": "Code without servers",
+      "body": "AWS Lambda runs your code without you managing servers. You upload a function; AWS handles the machines, patching and scaling.",
+      "seconds": 8
+    },
+    {
+      "title": "It runs when something happens",
+      "body": "Lambda is event-driven. A file lands in S3, someone calls an API, or a timer fires, and your function springs into action.",
+      "seconds": 8
+    },
+    {
+      "title": "Pay only while it runs",
+      "body": "You pay per request plus the time your code runs, billed by the millisecond. An idle function costs nothing.",
+      "seconds": 8
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "What does serverless mean?",
+      "back": "Servers still exist, but AWS runs, patches and scales them. You only write the code."
+    },
+    {
+      "front": "What can trigger a Lambda function?",
+      "back": "Events like an S3 upload, a schedule, or an API request, like the one that just loaded this lesson."
+    },
+    {
+      "front": "How long can one invocation run?",
+      "back": "Up to 15 minutes. Longer jobs get split into steps or moved to another service."
+    },
+    {
+      "front": "What happens when traffic spikes?",
+      "back": "Lambda scales automatically, running more copies of your function in parallel as requests grow."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does AWS Lambda let you do?",
+      "options": ["Store files in buckets", "Run code without managing servers", "Buy physical servers", "Design websites visually"],
+      "answer": 1,
+      "why": "Lambda is serverless compute: you bring the code, AWS runs it."
+    },
+    {
+      "q": "Which of these can trigger a Lambda function?",
+      "options": ["Only a manual click in the console", "Nothing, functions run nonstop", "Only a support ticket", "A new file uploaded to S3"],
+      "answer": 3,
+      "why": "Lambda is event-driven, and an S3 upload is a classic trigger."
+    },
+    {
+      "q": "How is Lambda billed?",
+      "options": ["Per request plus run time", "A flat monthly server fee", "Per line of code", "Per user who signs up"],
+      "answer": 0,
+      "why": "You pay per request and for compute time, billed by the millisecond."
+    },
+    {
+      "q": "What's the longest a single Lambda invocation can run?",
+      "options": ["15 seconds", "15 minutes", "15 hours", "No limit"],
+      "answer": 1,
+      "why": "Each invocation can run for up to 15 minutes."
+    },
+    {
+      "q": "Traffic to your function suddenly doubles. What happens?",
+      "options": ["You must add servers", "The function shuts down", "Lambda scales automatically", "AWS asks you to upgrade"],
+      "answer": 2,
+      "why": "Lambda runs more copies of your function in parallel as requests grow."
+    }
+  ]
+}
