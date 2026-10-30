@@ -1,4 +1,4 @@
-# AWSOME
+# AWSOME (AWS North × Northumbria Hackathon, September 2026)
 
 Learn AWS the way you already scroll: short reels, flashcards and a Kahoot-style quiz, with an attention score that notices when you skim.
 
@@ -31,18 +31,16 @@ Live topics today: Amazon S3 and AWS Lambda. EC2, IAM, DynamoDB and Bedrock are 
 ## Built with
 
 - **Python and Streamlit** for the app, styled as a phone with custom CSS, including 3D card flips, reel slide transitions and screen fades.
-- **Amazon S3** stores each lesson as a JSON file, so adding a topic is just an upload.
-- **Amazon DynamoDB** saves each learner's progress (XP, level, badges and best scores), one item per name.
-- **boto3**, the AWS SDK for Python, connects the app to both. If AWS can't be reached, the app falls back to local files.
+- **Local JSON storage.** Lessons are JSON files in content/, and each learner's progress (XP, level, badges and best scores) is saved as a JSON file in progress/.
 
 ## Project structure
 
 ```
 app.py            Streamlit UI: screens, phone frame, quiz, animations
 logic.py          Rules: attention score, pass mark, XP, levels, badges
-store.py          Data access: S3 and DynamoDB, with a local fallback
+store.py          Data access: lessons from content/, progress saved to progress/
 test_logic.py     Unit tests for logic.py
-content/          Lesson files (s3.json, lambda.json), also uploaded to S3
+content/          Lesson files (s3.json, lambda.json)
 .streamlit/       Theme
 ```
 
@@ -55,21 +53,13 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Without AWS credentials, the app uses the lessons in `content/` and saves progress to a local `progress/` folder. Run the tests with `pytest -q`.
-
-## Connect it to AWS
-
-1. Create an S3 bucket and upload the files from `content/`.
-2. Create a DynamoDB table named `awsome_users` with partition key `user_id` (String), in the same region.
-3. Set `BUCKET` and `REGION` at the top of `store.py`.
-4. Export your AWS credentials in a terminal, then start the app from that same terminal.
-
-Each learner then appears in DynamoDB under Explore table items.
+The app reads lessons from content/ and saves progress to a local progress/ folder. Run the tests with pytest -q.
 
 ## What's next
 
+- Move lessons to Amazon S3 and learner progress to Amazon DynamoDB, using boto3.
 - Real AWS videos in the reel slots through the YouTube API, with actual watch time feeding the attention score. One of the AWS reps suggested this on the day.
-- An API Gateway and Lambda backend, so the app doesn't need AWS keys on the device.
+- An API Gateway and Lambda backend in front of that storage.
 - Amazon Bedrock generating new topics from AWS documentation.
 - Sign-in with Amazon Cognito.
 - Swipe gestures in a native or React version.
@@ -77,4 +67,6 @@ Each learner then appears in DynamoDB under Explore table items.
 
 ## Team
 
-Built by Kamil Shirinov and teammates at the AWS North x Northumbria Hackathon.
+Led and built by Kamil Shirinov at the AWS North × Northumbria Hackathon, with teammates contributing ideas and suggesting fixes and additions.
+
+Licence: all rights reserved, published for review.
